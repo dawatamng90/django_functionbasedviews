@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+{% block body_block %}
+<div class="container mt-4">
+    <h1 class="text-center">Employee List</h1>
+    {% if emp_list %}
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Employee Number</th>
+                <th>Employee Name</th>
+                <th>Employee Salary</th>
+                <th>Employee Address</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for emp in emp_list %}
+            <tr>
+                <td>{{ emp.eno }}</td>
+                <td>{{ emp.ename }}</td>
+                <td>{{ emp.esal }}</td>
+                <td>{{ emp.eaddr }}</td>
+                <td><a href="/update/{{emp.id}}" class="btn btn-warning">Update</a>&nbsp&nbsp&nbsp<a
+                        href="/delete/{{emp.id}}" class="btn btn-danger">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="text-center text-white">No employee records found!</p>
+    {% endif %}
+    <br><br>
+    <div class="text-center">
+        <a href="/insert" class="btn btn-success">Insert New Employee</a>
+    </div>
+
+</div>
+
+{% endblock %}

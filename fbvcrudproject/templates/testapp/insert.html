@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+{% block body_block %}
+<div class="mt-4 p-5 bg-secondary text-white rounded">
+    <div class="container">
+        <h1>Insert Employee Data</h1>
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                {{ form.as_p }}
+            </div>
+            <input type="submit" class="btn btn-success" value="Insert">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
